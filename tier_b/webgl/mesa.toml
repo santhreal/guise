@@ -1,0 +1,6 @@
+# Tier-B WebGL GPU persona library. Mesa open-source graphics stack.
+# Used by Chrome on Linux when no ANGLE passthrough is active.
+
+[[gpu]]
+vendor = "Mesa"
+renderer = "Mesa Intel(R) UHD Graphics 770 (ADL-S GT1)"

@@ -1,0 +1,92 @@
+# Tier-B voice persona library. Windows / Edge.
+# Typical speechSynthesis.getVoices() entries on a stock Edge/Windows install.
+
+[[voice]]
+name = "Microsoft David - English (United States)"
+lang = "en-US"
+default = true
+
+[[voice]]
+name = "Microsoft Zira - English (United States)"
+lang = "en-US"
+default = false
+
+[[voice]]
+name = "Microsoft Mark - English (United States)"
+lang = "en-US"
+default = false
+
+[[voice]]
+name = "Microsoft Hazel - English (United Kingdom)"
+lang = "en-GB"
+default = false
+
+[[voice]]
+name = "Microsoft Heera - English (India)"
+lang = "en-IN"
+default = false
+
+[[voice]]
+name = "Microsoft Ravi - English (India)"
+lang = "en-IN"
+default = false
+
+[[voice]]
+name = "Microsoft Irina - Russian (Russia)"
+lang = "ru-RU"
+default = false
+
+[[voice]]
+name = "Microsoft Pavel - Russian (Russia)"
+lang = "ru-RU"
+default = false
+
+[[voice]]
+name = "Microsoft Helena - Spanish (Spain)"
+lang = "es-ES"
+default = false
+
+[[voice]]
+name = "Microsoft Laura - Spanish (Spain)"
+lang = "es-ES"
+default = false
+
+[[voice]]
+name = "Microsoft Hortense - French (France)"
+lang = "fr-FR"
+default = false
+
+[[voice]]
+name = "Microsoft Julie - French (France)"
+lang = "fr-FR"
+default = false
+
+[[voice]]
+name = "Microsoft Hedda - German (Germany)"
+lang = "de-DE"
+default = false
+
+[[voice]]
+name = "Microsoft Stefan - German (Germany)"
+lang = "de-DE"
+default = false
+
+[[voice]]
+name = "Microsoft Elsa - Italian (Italy)"
+lang = "it-IT"
+default = false
+
+[[voice]]
+name = "Microsoft Cosimo - Italian (Italy)"
+lang = "it-IT"
+default = false
+
+[[voice]]
+name = "Microsoft Sayaka - Japanese (Japan)"
+lang = "ja-JP"
+default = false
+
+[[voice]]
+name = "Microsoft Haruka - Japanese (Japan)"
+lang = "ja-JP"
+default = false

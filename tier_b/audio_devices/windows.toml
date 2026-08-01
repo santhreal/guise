@@ -1,0 +1,19 @@
+# Tier-B audio device persona library. Windows desktop defaults.
+# Typical labels returned by navigator.mediaDevices.enumerateDevices() on a
+# stock Windows 10/11 laptop with Realtek audio.
+
+[[audio_device]]
+kind = "audioinput"
+label = "Microphone (Realtek(R) Audio)"
+
+[[audio_device]]
+kind = "audioinput"
+label = "Microphone Array (Intel(R) Smart Sound Technology)"
+
+[[audio_device]]
+kind = "audiooutput"
+label = "Speakers (Realtek(R) Audio)"
+
+[[audio_device]]
+kind = "audiooutput"
+label = "Headphones (Realtek(R) Audio)"

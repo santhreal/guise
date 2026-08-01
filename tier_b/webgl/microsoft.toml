@@ -1,0 +1,5 @@
+# Tier-B WebGL GPU persona library (legacy Internet Explorer 11).
+
+[[gpu]]
+vendor = "Microsoft"
+renderer = "Internet Explorer 11"

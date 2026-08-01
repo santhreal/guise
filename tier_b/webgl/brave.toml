@@ -1,0 +1,5 @@
+# Tier-B WebGL GPU persona library. Brave browser (masks the underlying GPU).
+
+[[gpu]]
+vendor = "Brave"
+renderer = "Brave"

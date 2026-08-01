@@ -1,0 +1,7 @@
+name = "EU Germany"
+timezone = "Europe/Berlin"
+locale = "de-DE"
+languages = ["de-DE", "de", "en"]
+lat = 52.52
+lon = 13.405
+country = "DE"

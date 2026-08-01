@@ -1,0 +1,3 @@
+# Tier-B fingerprint bundle - Chrome 131 on Windows (browser + TLS halves).
+browser = "chrome_131_windows"
+tls = "chrome131"

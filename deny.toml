@@ -1,0 +1,44 @@
+[graph]
+# Run against the workspace lockfile from the guise crate directory.
+targets = [
+    { triple = "x86_64-unknown-linux-gnu" },
+    { triple = "x86_64-unknown-linux-musl" },
+]
+
+[advisories]
+version = 2
+# The workspace does not yet have fixed releases for these transitive advisories.
+# Each entry links to the owning crate and the remediation plan in TRUSTED_DEPS.md.
+ignore = [
+    # hickory-proto 0.25.2: DNSSEC / O(n²) compression issues. Owned by scanclient
+    # via hickory-resolver; scanclient must upgrade to >=0.26.1.
+    "RUSTSEC-2026-0118",
+    "RUSTSEC-2026-0119",
+    # paste: unmaintained. Pulled by serde_valid -> rustenium-bidi-definitions,
+    # used only by runtime-foxdriver / rustenium (browser feature).
+    "RUSTSEC-2024-0436",
+    # proc-macro-error2: unmaintained. Same transitive path as paste.
+    "RUSTSEC-2026-0173",
+]
+
+[bans]
+multiple-versions = "warn"
+# Reject the dependency we explicitly migrated away from.
+deny = [
+    { name = "rustls-pemfile", version = "*", reason = "unmaintained; use rustls::pki_types::pem::PemObject" },
+]
+
+[licenses]
+version = 2
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Unicode-3.0",
+    "BSD-3-Clause",
+    "ISC",
+    "MPL-2.0",
+    "OpenSSL",
+    "CC0-1.0",
+    "CDLA-Permissive-2.0",
+]
+confidence-threshold = 0.95

@@ -1,0 +1,7 @@
+name = "EU UK"
+timezone = "Europe/London"
+locale = "en-GB"
+languages = ["en-GB", "en"]
+lat = 51.5074
+lon = -0.1278
+country = "GB"

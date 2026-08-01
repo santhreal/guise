@@ -1,0 +1,11 @@
+# Tier-B WebGL GPU persona library. Qualcomm Adreno mobile GPUs.
+# Real UNMASKED_VENDOR_WEBGL / UNMASKED_RENDERER_WEBGL pairs from Chrome/Android
+# and Samsung Internet.
+
+[[gpu]]
+vendor = "Qualcomm"
+renderer = "Adreno (TM) 740"
+
+[[gpu]]
+vendor = "Qualcomm"
+renderer = "Adreno (TM) 750"

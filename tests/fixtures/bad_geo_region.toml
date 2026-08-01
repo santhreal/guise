@@ -1,0 +1,7 @@
+name = "Bad Region"
+timezone = "America/New_York"
+locale = "ja-JP"
+languages = ["ja"]
+lat = 40.7128
+lon = -74.006
+country = "US"

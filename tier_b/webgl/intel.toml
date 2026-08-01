@@ -1,0 +1,21 @@
+# Tier-B WebGL GPU persona library. Intel graphics adapters.
+# These are real, measured UNMASKED_VENDOR_WEBGL / UNMASKED_RENDERER_WEBGL pairs
+# used by Chrome-family browsers on Windows and Linux. Empty strings are NOT
+# allowed here: a passthrough persona must be selected explicitly, not by omitting
+# the renderer.
+
+[[gpu]]
+vendor = "Google Inc. (Intel)"
+renderer = "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics Direct3D11 vs_5_0 ps_5_0, D3D11)"
+
+[[gpu]]
+vendor = "Google Inc. (Intel)"
+renderer = "ANGLE (Intel, Intel(R) UHD Graphics 630 Direct3D11 vs_5_0 ps_5_0, D3D11)"
+
+[[gpu]]
+vendor = "Google Inc. (Intel)"
+renderer = "ANGLE (Intel, Intel(R) UHD Graphics 770 Direct3D11 vs_5_0 ps_5_0, D3D11)"
+
+[[gpu]]
+vendor = "Google Inc. (Intel)"
+renderer = "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0, D3D11)"

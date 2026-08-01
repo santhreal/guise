@@ -1,0 +1,82 @@
+# Tier-B voice persona library. Linux / Firefox.
+# Typical speechSynthesis.getVoices() entries on a stock Firefox/Linux install.
+
+[[voice]]
+name = "English (US)"
+lang = "en-US"
+default = true
+
+[[voice]]
+name = "English (UK)"
+lang = "en-GB"
+default = false
+
+[[voice]]
+name = "Spanish (Spain)"
+lang = "es-ES"
+default = false
+
+[[voice]]
+name = "French (France)"
+lang = "fr-FR"
+default = false
+
+[[voice]]
+name = "German"
+lang = "de-DE"
+default = false
+
+[[voice]]
+name = "Italian"
+lang = "it-IT"
+default = false
+
+[[voice]]
+name = "Portuguese (Brazil)"
+lang = "pt-BR"
+default = false
+
+[[voice]]
+name = "Russian"
+lang = "ru-RU"
+default = false
+
+[[voice]]
+name = "Chinese (China)"
+lang = "zh-CN"
+default = false
+
+[[voice]]
+name = "Japanese"
+lang = "ja-JP"
+default = false
+
+[[voice]]
+name = "Korean"
+lang = "ko-KR"
+default = false
+
+[[voice]]
+name = "Hindi"
+lang = "hi-IN"
+default = false
+
+[[voice]]
+name = "Arabic"
+lang = "ar-SA"
+default = false
+
+[[voice]]
+name = "Dutch"
+lang = "nl-NL"
+default = false
+
+[[voice]]
+name = "Polish"
+lang = "pl-PL"
+default = false
+
+[[voice]]
+name = "Turkish"
+lang = "tr-TR"
+default = false

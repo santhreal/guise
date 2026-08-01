@@ -1,0 +1,7 @@
+name = "US East"
+timezone = "America/New_York"
+locale = "en-US"
+languages = ["en-US", "en"]
+lat = 40.7128
+lon = -74.006
+country = "US"

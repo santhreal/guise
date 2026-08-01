@@ -1,0 +1,7 @@
+name = "APAC Japan"
+timezone = "Asia/Tokyo"
+locale = "ja-JP"
+languages = ["ja-JP", "ja", "en-US", "en"]
+lat = 35.6762
+lon = 139.6503
+country = "JP"

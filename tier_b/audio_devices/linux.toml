@@ -1,0 +1,19 @@
+# Tier-B audio device persona library. Linux desktop defaults.
+# Typical labels returned by navigator.mediaDevices.enumerateDevices() on a
+# stock Linux desktop with PulseAudio/PipeWire.
+
+[[audio_device]]
+kind = "audioinput"
+label = "Default"
+
+[[audio_device]]
+kind = "audioinput"
+label = "Built-in Audio Analog Stereo"
+
+[[audio_device]]
+kind = "audiooutput"
+label = "Default"
+
+[[audio_device]]
+kind = "audiooutput"
+label = "Built-in Audio Analog Stereo"

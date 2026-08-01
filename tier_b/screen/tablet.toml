@@ -1,0 +1,20 @@
+# Tier-B screen/DPR persona library (tablets).
+# Common tablet viewport sizes and DPR values.
+
+[[screen]]
+width = 1024
+height = 1366
+dpr = 2.0
+color_depth = 24
+
+[[screen]]
+width = 834
+height = 1194
+dpr = 2.0
+color_depth = 24
+
+[[screen]]
+width = 800
+height = 1280
+dpr = 1.5
+color_depth = 24

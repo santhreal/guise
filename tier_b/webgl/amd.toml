@@ -1,0 +1,6 @@
+# Tier-B WebGL GPU persona library. AMD discrete GPUs.
+# Real UNMASKED_VENDOR_WEBGL / UNMASKED_RENDERER_WEBGL pairs from Chrome on Windows.
+
+[[gpu]]
+vendor = "Google Inc. (AMD)"
+renderer = "ANGLE (AMD, AMD Radeon RX 6700 XT Direct3D11 vs_5_0 ps_5_0, D3D11)"

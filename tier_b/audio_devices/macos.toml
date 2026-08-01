@@ -1,0 +1,11 @@
+# Tier-B audio device persona library (macOS desktop defaults).
+# Typical labels returned by navigator.mediaDevices.enumerateDevices() on a
+# stock MacBook Pro.
+
+[[audio_device]]
+kind = "audioinput"
+label = "MacBook Pro Microphone"
+
+[[audio_device]]
+kind = "audiooutput"
+label = "MacBook Pro Speakers"

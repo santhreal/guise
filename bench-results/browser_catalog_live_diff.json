@@ -1,0 +1,18 @@
+{
+  "catalogue_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  "catalogue_accept_encoding": "gzip, deflate, br",
+  "catalogue_accept_language": "en-US,en;q=0.9",
+  "catalogue_profile": "firefox-linux",
+  "catalogue_sec_fetch_dest": "document",
+  "catalogue_sec_fetch_mode": "navigate",
+  "catalogue_sec_fetch_site": "none",
+  "catalogue_user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0",
+  "live_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  "live_accept_encoding": "gzip, deflate, br, zstd",
+  "live_accept_language": "en-US,en;q=0.9",
+  "live_sec_fetch_dest": "document",
+  "live_sec_fetch_mode": "navigate",
+  "live_sec_fetch_site": "none",
+  "live_upgrade_insecure_requests": "1",
+  "live_user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:149.0) Gecko/20100101 Firefox/149.0"
+}

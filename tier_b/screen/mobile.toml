@@ -1,0 +1,20 @@
+# Tier-B screen/DPR persona library (mobile phones).
+# Common smartphone viewport sizes and Retina-class DPR values.
+
+[[screen]]
+width = 390
+height = 844
+dpr = 3.0
+color_depth = 24
+
+[[screen]]
+width = 414
+height = 896
+dpr = 3.0
+color_depth = 24
+
+[[screen]]
+width = 412
+height = 915
+dpr = 2.625
+color_depth = 24

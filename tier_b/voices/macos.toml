@@ -1,0 +1,92 @@
+# Tier-B voice persona library (macOS / Safari).
+# Typical speechSynthesis.getVoices() entries on a stock Safari/macOS install.
+
+[[voice]]
+name = "Samantha"
+lang = "en-US"
+default = true
+
+[[voice]]
+name = "Alex"
+lang = "en-US"
+default = false
+
+[[voice]]
+name = "Daniel"
+lang = "en-GB"
+default = false
+
+[[voice]]
+name = "Kate"
+lang = "en-GB"
+default = false
+
+[[voice]]
+name = "Moira"
+lang = "en-IE"
+default = false
+
+[[voice]]
+name = "Karen"
+lang = "en-AU"
+default = false
+
+[[voice]]
+name = "Fred"
+lang = "en-US"
+default = false
+
+[[voice]]
+name = "Vicki"
+lang = "de-DE"
+default = false
+
+[[voice]]
+name = "Anna"
+lang = "de-DE"
+default = false
+
+[[voice]]
+name = "Thomas"
+lang = "fr-FR"
+default = false
+
+[[voice]]
+name = "Audrey"
+lang = "fr-FR"
+default = false
+
+[[voice]]
+name = "Paola"
+lang = "it-IT"
+default = false
+
+[[voice]]
+name = "Luca"
+lang = "it-IT"
+default = false
+
+[[voice]]
+name = "Monica"
+lang = "es-ES"
+default = false
+
+[[voice]]
+name = "Jorge"
+lang = "es-ES"
+default = false
+
+[[voice]]
+name = "Kyoko"
+lang = "ja-JP"
+default = false
+
+[[voice]]
+name = "Otoya"
+lang = "ja-JP"
+default = false
+
+[[voice]]
+name = "Ting-Ting"
+lang = "zh-CN"
+default = false

@@ -1,0 +1,16 @@
+# Tier-B WebGL GPU persona library. Apple GPUs.
+# Includes both native Safari values and ANGLE-wrapped Chrome-on-macOS values.
+# Apple GPUs can only physically exist on Apple platforms; the coherence gate
+# enforces this (G096).
+
+[[gpu]]
+vendor = "Apple Inc."
+renderer = "Apple GPU"
+
+[[gpu]]
+vendor = "Apple Inc."
+renderer = "Apple M2"
+
+[[gpu]]
+vendor = "Google Inc. (Apple)"
+renderer = "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)"

@@ -1,0 +1,20 @@
+# Tier-B screen/DPR persona library. Apple MacBook displays.
+# MacBook panels use Retina-scale DPR and 30-bit color depth.
+
+[[screen]]
+width = 1728
+height = 1117
+dpr = 2.0
+color_depth = 30
+
+[[screen]]
+width = 1512
+height = 982
+dpr = 2.0
+color_depth = 30
+
+[[screen]]
+width = 2880
+height = 1800
+dpr = 2.0
+color_depth = 30

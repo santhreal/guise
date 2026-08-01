@@ -1,0 +1,50 @@
+# Tier-B system font persona library (standard Linux desktop set).
+#
+# These families ship on typical Ubuntu/Fedora desktops. The reynard engine maps
+# this list to `font.system.whitelist`, so font-list fingerprinting sees a small,
+# coherent set instead of the host's full (identifying) install.
+
+[[font]]
+family = "DejaVu Sans"
+
+[[font]]
+family = "DejaVu Serif"
+
+[[font]]
+family = "DejaVu Sans Mono"
+
+[[font]]
+family = "Liberation Sans"
+
+[[font]]
+family = "Liberation Serif"
+
+[[font]]
+family = "Liberation Mono"
+
+[[font]]
+family = "Noto Sans"
+
+[[font]]
+family = "Noto Serif"
+
+[[font]]
+family = "Noto Mono"
+
+[[font]]
+family = "Noto Color Emoji"
+
+[[font]]
+family = "FreeSans"
+
+[[font]]
+family = "FreeSerif"
+
+[[font]]
+family = "FreeMono"
+
+[[font]]
+family = "Cantarell"
+
+[[font]]
+family = "Droid Sans Fallback"
