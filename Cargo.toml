@@ -1,10 +1,10 @@
 [package]
 name = "guise"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 rust-version = "1.88"
 license = "MIT OR Apache-2.0"
-authors = ["Santh Project <contact@santh.dev>"]
+authors = ["Santh <64453045+santhreal@users.noreply.github.com>"]
 repository = "https://github.com/santhreal/guise"
 homepage = "https://santh.dev"
 description = "Canonical browser fingerprint bundles, human-behavior timing, and TLS profile re-exports for the Santh fleet"
@@ -75,7 +75,7 @@ criterion = { version = "0.5.1" }
 # Path-only on purpose: dev-deps with a version requirement must resolve from
 # crates.io at publish time, which deadlocks against guise-echo's own dep on
 # this crate. Path-only dev-deps are stripped from the published manifest.
-guise-echo = { version = "0.1.1" }
+guise-echo = { version = "0.1.3" }
 # The echo regression test drives a raw rustls client against guise-echo.
 rustls = { version = "0.23.27", features = ["ring"] }
 tokio-rustls = { version = "0.26.4" }

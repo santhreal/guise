@@ -1,8 +1,10 @@
 # Changelog
 
-## [Unreleased]
+## [0.1.4] - 2026-08-07
 
 ### Fixed
+- **Tier-B WebGL GPU loader permitted unknown vendor families to bypass platform-coherence validation.** `load_webgl_gpus_from_toml` classified unrecognized vendor strings as `WebGlGpuFamily::Other` and allowed them to pass validation as coherent with `"Win32"`, permitting unclassified GPU vendor strings to enter the persona pool. Fixed: `load_webgl_gpus_from_toml` now rejects `WebGlGpuFamily::Other` with a fail-closed `WebGlGpuLoadError::Invalid` error. Locked by unit test `unknown_gpu_vendor_family_is_rejected_fail_closed`.
+- **Crate metadata hygiene.** Updated `Cargo.toml` `authors` field to `Santh <64453045+santhreal@users.noreply.github.com>`.
 
 - **`PersonaPool::restore_snapshot` could hand a restored id out again.** The
   restore path inserted the snapshot's id without advancing the pool's `next_id`

@@ -95,6 +95,20 @@ fn malformed_empty_renderer_is_rejected() {
     );
     let _ = std::fs::remove_dir_all(&dir);
 }
+#[test]
+fn unknown_gpu_vendor_family_is_rejected_fail_closed() {
+    let dir = std::env::temp_dir().join(format!("guise-webgl-unknown-vendor-{}", std::process::id()));
+    std::fs::create_dir_all(&dir).unwrap();
+    let path = dir.join("unknown.toml");
+    std::fs::write(&path, "[[gpu]]\nvendor = \"Acme Custom GPU\"\nrenderer = \"Acme Render 3000\"\n").unwrap();
+
+    let err = load_webgl_gpus_from_toml(&path).expect_err("unknown vendor family must be rejected fail-closed");
+    assert!(
+        format!("{err}").contains("unknown GPU vendor family"),
+        "expected unknown vendor family error, got {err}"
+    );
+    let _ = std::fs::remove_dir_all(&dir);
+}
 
 #[test]
 fn oversized_file_is_rejected() {

@@ -193,9 +193,11 @@ pub fn load_webgl_gpus_from_toml(path: &Path) -> Result<Vec<WebGlGpuPersona>, We
         }
 
         let family = webgl_gpu_vendor_family(vendor);
-        // Every known family must be coherent with at least one platform. The
-        // `Other` family cannot be validated here, but an empty family set is a
-        // bug, so we reject truly unknown vendor strings.
+        if family == WebGlGpuFamily::Other {
+            return Err(invalid(&format!(
+                "unknown GPU vendor family for vendor {vendor:?}"
+            )));
+        }
         let coherent_platform = match family {
             WebGlGpuFamily::Apple => "MacIntel",
             _ => "Win32",
