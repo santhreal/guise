@@ -299,3 +299,47 @@ fn set_current_url_affects_referer() {
     }
     assert!(saw_referer);
 }
+#[test]
+fn inject_unknown_ua_does_not_forge_windows_platform_hint() {
+    let profile = BehavioralProfile {
+        name: "unknown_ua_profile",
+        stealth_profile: None,
+        accept_language_variants: vec![("en-US,en;q=0.9", 1.0)],
+        user_agent_pool: vec!["Mozilla/5.0 (X11; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0"],
+        referer_pool: vec![""],
+        timing: (100.0, 10.0),
+        sec_fetch_mode: vec!["navigate"],
+        emit_client_hints: true,
+        sec_ch_ua: Some("\"Firefox\";v=\"132\""),
+    };
+    let mut injector = NoiseInjector::new(profile, 0x1234);
+    let mut headers = Vec::new();
+    injector.inject(&mut headers);
+
+    assert_eq!(
+        header_value(&headers, "sec-ch-ua-platform"),
+        Some("\"Linux\""),
+        "Firefox Linux UA should resolve Linux platform hint, never forge Windows"
+    );
+
+    let unknown_profile = BehavioralProfile {
+        name: "unknown_bot_profile",
+        stealth_profile: None,
+        accept_language_variants: vec![("en-US,en;q=0.9", 1.0)],
+        user_agent_pool: vec!["CustomScanner/1.0"],
+        referer_pool: vec![""],
+        timing: (100.0, 10.0),
+        sec_fetch_mode: vec!["navigate"],
+        emit_client_hints: true,
+        sec_ch_ua: Some("\"CustomBot\";v=\"1\""),
+    };
+    let mut unknown_injector = NoiseInjector::new(unknown_profile, 0x1234);
+    let mut unknown_headers = Vec::new();
+    unknown_injector.inject(&mut unknown_headers);
+
+    assert_eq!(
+        header_value(&unknown_headers, "sec-ch-ua-platform"),
+        None,
+        "Unknown OS UA should omit platform hint, never forge Windows"
+    );
+}

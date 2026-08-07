@@ -207,7 +207,9 @@ impl NoiseInjector {
         self.request_count += 1;
         let canonical_profile = self.canonical_profile_for_session();
         let request_kind = self.sample_request_kind();
-        let canonical_headers = browser_request_headers(canonical_profile, request_kind);
+        let canonical_headers = canonical_profile
+            .map(|p| browser_request_headers(p, request_kind))
+            .unwrap_or_default();
 
         clear_request_surface_headers(headers);
         self.inject_catalog_surface_headers(headers, &canonical_headers);
@@ -239,13 +241,12 @@ impl NoiseInjector {
         }
     }
 
-    fn canonical_profile_for_session(&self) -> StealthProfile {
+    fn canonical_profile_for_session(&self) -> Option<StealthProfile> {
         if let Some(profile) = self.profile.stealth_profile {
-            return profile;
+            return Some(profile);
         }
 
         infer_profile_from_user_agent(&self.session_user_agent)
-            .unwrap_or(StealthProfile::ChromeWindowsStable)
     }
 
     fn sample_referer(&mut self) -> String {
@@ -328,12 +329,14 @@ impl NoiseInjector {
                 .canonical_client_hint(canonical, "Sec-CH-UA-Mobile")
                 .map(str::to_string)
                 .unwrap_or_else(|| self.mobile_hint_from_user_agent().to_string());
+            set_header(headers, "sec-ch-ua-mobile", &mobile);
             let platform = self
                 .canonical_client_hint(canonical, "Sec-CH-UA-Platform")
                 .map(str::to_string)
-                .unwrap_or_else(|| self.platform_hint_from_user_agent().to_string());
-            set_header(headers, "sec-ch-ua-mobile", &mobile);
-            set_header(headers, "sec-ch-ua-platform", &platform);
+                .or_else(|| self.platform_hint_from_user_agent().map(str::to_string));
+            if let Some(platform) = platform {
+                set_header(headers, "sec-ch-ua-platform", &platform);
+            }
             return;
         }
 
@@ -356,10 +359,8 @@ impl NoiseInjector {
             .map(|header| header.value.as_str())
     }
 
-    fn platform_hint_from_user_agent(&self) -> &'static str {
-        user_agent_facts(&self.session_user_agent)
-            .client_hint_platform_value()
-            .unwrap_or("\"Windows\"")
+    fn platform_hint_from_user_agent(&self) -> Option<&'static str> {
+        user_agent_facts(&self.session_user_agent).client_hint_platform_value()
     }
 
     fn mobile_hint_from_user_agent(&self) -> &'static str {

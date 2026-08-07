@@ -12,7 +12,7 @@ use crate::sampling::{seeded_rng, RngSeed};
 use guise_profiles::{named_profile, profile_name, DEFAULT_STEALTH_PROFILE};
 
 use super::geo_region::geo_region_by_timezone;
-use super::{profile_to_overrides_at, GeoRegion, StealthProfile, GEO_REGIONS};
+use super::{infer_profile_from_user_agent, profile_to_overrides_at, GeoRegion, StealthProfile, GEO_REGIONS};
 use crate::fingerprint::rarity::rarity_score;
 
 /// A coherent browser identity with browser, hardware, locale, and geo fields.
@@ -73,7 +73,19 @@ pub struct NavigatorProfile {
 
 impl NavigatorProfile {
     fn stealth_profile(&self) -> StealthProfile {
-        named_profile(&self.stealth_profile_name).unwrap_or(DEFAULT_STEALTH_PROFILE)
+        named_profile(&self.stealth_profile_name)
+            .or_else(|| infer_profile_from_user_agent(&self.user_agent))
+            .unwrap_or(DEFAULT_STEALTH_PROFILE)
+    }
+
+    /// Try resolving the canonical [`StealthProfile`] for this identity.
+    ///
+    /// Returns `Some(StealthProfile)` if the identity's profile name or User-Agent
+    /// matches a known profile in the catalogue, or `None` if unrecognized.
+    #[must_use]
+    pub fn try_stealth_profile(&self) -> Option<StealthProfile> {
+        named_profile(&self.stealth_profile_name)
+            .or_else(|| infer_profile_from_user_agent(&self.user_agent))
     }
 
     /// Build the runtime browser overrides for this identity.
@@ -540,5 +552,27 @@ mod tests {
             id.geo_coherence(),
             crate::fingerprint::geo_coherence::GeoCoherence::Coherent
         );
+    }
+
+    #[test]
+    fn unrecognized_profile_name_infers_from_user_agent() {
+        let mut id = seeded(&RngSeed::from_u64(42));
+        // Corrupt stealth_profile_name to an unknown value while keeping a Firefox Linux UA.
+        id.stealth_profile_name = "corrupted-profile-name".to_string();
+        id.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0".to_string();
+
+        assert_eq!(
+            id.stealth_profile(),
+            StealthProfile::FirefoxLinux,
+            "unrecognized profile_name should infer FirefoxLinux from user_agent, not default to Chrome"
+        );
+        assert_eq!(
+            id.try_stealth_profile(),
+            Some(StealthProfile::FirefoxLinux)
+        );
+
+        // Completely invalid UA and name
+        id.user_agent = "UnknownBot/1.0".to_string();
+        assert_eq!(id.try_stealth_profile(), None);
     }
 }

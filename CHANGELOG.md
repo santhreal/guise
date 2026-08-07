@@ -1,5 +1,11 @@
 # Changelog
 
+
+## [0.1.5] - 2026-08-07
+
+### Fixed
+- **Behavioral noise injector forced Chrome canonical headers and Windows platform hint on unknown user agents.** `NoiseInjector::canonical_profile_for_session` defaulted unrecognized user agents to `StealthProfile::ChromeWindowsStable`, and `platform_hint_from_user_agent` defaulted `Sec-CH-UA-Platform` to `"\"Windows\""`, forging Chrome client hints on non-Chromium/unknown sessions. Fixed: `canonical_profile_for_session` now returns `Option<StealthProfile>` and `platform_hint_from_user_agent` returns `Option<&'static str>`, omitting unresolvable platform hints instead of manufacturing false Windows headers. Locked by unit test `inject_unknown_ua_does_not_forge_windows_platform_hint`.
+- **`NavigatorProfile` defaulted corrupted stealth profile names immediately to `ChromeWindowsStable`.** `NavigatorProfile::stealth_profile` used `named_profile(...).unwrap_or(DEFAULT_STEALTH_PROFILE)`, turning non-Chrome profiles with unrecognized names into `ChromeWindowsStable`. Fixed: now attempts `infer_profile_from_user_agent(&self.user_agent)` before defaulting, and exposes `try_stealth_profile(&self) -> Option<StealthProfile>`. Locked by unit test `unrecognized_profile_name_infers_from_user_agent`.
 ## [0.1.4] - 2026-08-07
 
 ### Fixed
